@@ -1,0 +1,25 @@
+#IDE files
+.idea/
+*.iml
+node-server/.vs
+
+#log file
+*.log
+tsa-tool/logs/*
+#war
+*.war
+
+#compile file
+*.class
+./target/
+*/target/*
+*/*/target/*
+*/*/*/target/*
+script/__Deploy
+
+# 前端
+node_modules
+.DS_STORE
+npm-debug.log
+package-lock.json
+dist
