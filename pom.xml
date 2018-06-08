@@ -11,6 +11,7 @@
   <modules>
     <module>type-information</module>
     <module>polymorphism</module>
+    <module>design-pattern</module>
   </modules>
 
 
