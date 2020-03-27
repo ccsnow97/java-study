@@ -13,6 +13,7 @@
     <module>design-pattern</module>
     <module>jdk</module>
     <module>concurrent</module>
+      <module>data-structure</module>
   </modules>
 
 
