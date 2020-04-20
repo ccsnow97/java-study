@@ -1,13 +1,12 @@
 package com.cc.study.tree;
 
-import java.util.ArrayList;
-import java.util.Arrays;
-import java.util.Collections;
-import java.util.List;
+import javafx.util.Pair;
+
+import java.util.*;
 
 /**
  * 23树
- *
+ * <p>
  * //todo 删除未做
  *
  * @Date: 2020/04/14 16:35
@@ -137,12 +136,43 @@ public class ThreeNode {
         }
     }
 
+    public static boolean checkTree(ThreeNode rNode) {
+
+        List<Integer> heights = new ArrayList<>();
+        LinkedList<Pair<ThreeNode, Integer>> queue = new LinkedList<>();
+        queue.offer(new Pair<>(rNode, 1));
+        while (queue.size() > 0) {
+            Pair<ThreeNode, Integer> poll = queue.poll();
+            if (poll != null) {
+                ThreeNode node = poll.getKey();
+                Integer height = poll.getValue();
+                if (node != null) {
+                    if (isChildrenEmpty(node)) {
+                        heights.add(height);
+                    }
+                    if (!isChildrenEmpty(node)) {
+                        height += 1;
+                        for (ThreeNode child : node.children) {
+                            queue.offer(new Pair<>(child, height));
+                        }
+                    }
+                }
+            }
+        }
+        return heights.stream().distinct().count() <= 1;
+    }
 
     public static void main(String[] args) {
-        Integer[] integers = {4, 10, 2, 7, 15, 30, 1, 3, 5, 9, 11, 18, 36, 40, 32};
+        List<Integer> integers = new ArrayList<>();
+        for(int i=1;i<=40;i++){
+            integers.add(new Random().nextInt(50)+10);
+        }
         ThreeNode root = null;
         for (Integer integer : integers) {
             root = insert(root, integer);
+            if (!checkTree(root)) {
+                throw new RuntimeException("不是标准23树");
+            }
             List<Integer> list = midTraverse(root);
             System.out.println(list);
         }
