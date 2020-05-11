@@ -33,7 +33,6 @@ public class ThreeNode {
     }
 
     public static void insert0(ThreeNode rNode, Integer value) {
-
         if (isChildrenEmpty(rNode)) {
             addElemInOrder(rNode, value);
         } else {
@@ -136,8 +135,7 @@ public class ThreeNode {
         }
     }
 
-    public static boolean checkTree(ThreeNode rNode) {
-
+    public static boolean checkTreeHeightAccordance(ThreeNode rNode) {
         List<Integer> heights = new ArrayList<>();
         LinkedList<Pair<ThreeNode, Integer>> queue = new LinkedList<>();
         queue.offer(new Pair<>(rNode, 1));
@@ -170,7 +168,7 @@ public class ThreeNode {
         ThreeNode root = null;
         for (Integer integer : integers) {
             root = insert(root, integer);
-            if (!checkTree(root)) {
+            if (!checkTreeHeightAccordance(root)) {
                 throw new RuntimeException("不是标准23树");
             }
             List<Integer> list = midTraverse(root);
