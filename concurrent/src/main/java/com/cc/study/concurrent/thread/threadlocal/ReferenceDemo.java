@@ -31,10 +31,20 @@ public class ReferenceDemo {
         WeakReference<ReferenceDemo> weakReference = new WeakReference<>(getReference());
         int count=0;
         System.out.println(weakReference.get());
+        WeakReference<ReferenceDemo>[] weakReferences = new WeakReference[1];
+        weakReferences[0]=weakReference;
+        System.out.println(weakReferences[0].get());
         while(weakReference.get()!=null){
             count++;
             System.gc();
             System.out.println("Weak reference deleted  after:: " + count + weakReference.get());
+            if(weakReferences[0]==null){
+                System.out.println("null");
+            }else {
+                WeakReference<ReferenceDemo> weakReference1 = weakReferences[0];
+                System.out.println(weakReference1);
+                System.out.println(weakReference1.get());
+            }
         }
     }
 

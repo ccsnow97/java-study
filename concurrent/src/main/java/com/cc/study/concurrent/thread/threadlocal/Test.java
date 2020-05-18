@@ -12,24 +12,20 @@ public class Test {
 
 
     public static void main(String[] args) throws InterruptedException {
-        Thread thread = new Thread() {
-            @Override
-            public void run() {
-                while (true) {
-                    try {
-                        sleep(1000);
-                    } catch (InterruptedException e) {
-                        e.printStackTrace();
-                    }
-                    System.out.println("子线程完了");
-                }
-            }
-        };
-        thread.setDaemon(true);
-        thread.start();
-//        thread.join();
-        Thread.sleep(2500);
-        System.out.println("main线程完了");
+        int a=16;
+        int b=3>>>a;
+        System.out.println(b);
+
+    }
+
+    public class A {
+        private int some;
+        public int another;
+
+        public int getSome() { return some; }
+        public synchronized int getSomeWithSync() { return some; }
+        public void setSome(int v) { some = v; }
+        public synchronized void setSomeWithSync(int v) { some = v; }
     }
 
 }
