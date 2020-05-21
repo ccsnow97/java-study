@@ -14,7 +14,7 @@ public class ParkDemo {
                 System.out.println("start thread.");
                 LockSupport.park();
                 System.out.println("after park.");
-                while (true);
+                while (true){}
             }
         };
 
