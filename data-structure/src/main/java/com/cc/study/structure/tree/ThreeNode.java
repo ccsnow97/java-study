@@ -1,4 +1,4 @@
-package com.cc.study.tree;
+package com.cc.study.structure.tree;
 
 import javafx.util.Pair;
 
