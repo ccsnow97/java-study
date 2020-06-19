@@ -8,27 +8,41 @@ import java.util.*;
 public class Test {
 
     public static void main(String[] args) {
-        LinkedHashMap<Integer, String> map = new LinkedHashMap<>();
-        map.put(2,"tom");
-        map.put(3,"tony");
-        Set<Map.Entry<Integer, String>> entries = map.entrySet();
-
-        HashMap<Integer, String> hashMap = new HashMap<>();
-        hashMap.put(2,"tom");
-        hashMap.put(3,"tony");
-        Set<Map.Entry<Integer, String>> entries1 = hashMap.entrySet();
+        Solution solution = new Test().new Solution();
+        Integer[] array = {3,9,20,null,null,15,7};
+        TreeNode treeNode = TreeNode.flatToTree(new ArrayList<>(Arrays.asList(array)));
+        boolean palindrome = solution.isPalindrome("A man, a plan, a canal: Panama");
     }
 
     class Solution {
-        public int maxSubArray(int[] nums) {
-            int[] dp=new int[nums.length];
-            dp[0]=nums[0];
-            int max=dp[0];
-            for(int i=1;i<nums.length;i++){
-                dp[i]=Math.max(dp[i-1]+nums[i],nums[i]);
-                max=Math.max(max,dp[i]);
+        public boolean isPalindrome(String s) {
+            if(s==null||s.length()==0) return true;
+            int length = s.length();
+            int start = 0;
+            int end = length-1;
+            while(end>start){
+                if(!isValid(s.charAt(start))) {start++; continue;}
+                if(!isValid(s.charAt(end))) {end--;continue;}
+                char startCh = s.charAt(start);
+                char endCh = s.charAt(end);
+                if(startCh>='a') startCh-=32;
+                if(endCh>='a') endCh-=32;
+                if(startCh==endCh) {
+                    start++;end--;
+                }else {
+                    return false;
+                }
             }
-            return max;
+            return true;
+        }
+
+        public boolean isValid(Character ch){
+            if(ch>='0'&&ch<='9'
+                    ||ch>='a'&&ch<='z'
+                    ||ch>='A'&&ch<='Z'){
+                return true;
+            }
+            return false;
         }
     }
 
