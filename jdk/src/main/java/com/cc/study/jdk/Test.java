@@ -22,8 +22,25 @@ public class Test {
     }
 
     class Solution {
-        public int largestRectangleArea(int[] heights) {
-            return 0;
+        public int lengthOfLongestSubstring(String s) {
+            if(s==null||s.length()==0) return 0;
+            int[] f=new int[s.length()];
+            f[0]=1;
+            int res=1;
+            for(int i=1;i<s.length();i++){
+                int temp = 1;
+                for(int j=i-1;j>=i-f[i-1];j--){
+                    if(s.charAt(i)!=s.charAt(j)){
+                        temp++;
+                    }else {
+                        break;
+                    }
+                }
+                f[i]=temp;
+                res=Math.max(res,temp);
+            }
+
+            return res;
         }
     }
 

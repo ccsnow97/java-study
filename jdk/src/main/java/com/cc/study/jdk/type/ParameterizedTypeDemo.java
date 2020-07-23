@@ -22,6 +22,7 @@ public class ParameterizedTypeDemo<T> {
     Map.Entry<T,Integer> entry;
 
     public static void main(String[] args) throws NoSuchFieldException {
+
         Field field = ParameterizedTypeDemo.class.getDeclaredField("entry");
         Type genericType = field.getGenericType();
         Class<?> type = field.getType();
