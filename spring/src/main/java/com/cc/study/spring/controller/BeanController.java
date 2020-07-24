@@ -1,6 +1,7 @@
 package com.cc.study.spring.controller;
 
 import com.cc.study.spring.entity.Student;
+import com.cc.study.spring.entity.StudentService;
 import com.fasterxml.jackson.core.JsonProcessingException;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import org.springframework.beans.factory.BeanFactory;
@@ -22,7 +23,7 @@ public class BeanController {
     @Autowired
     private BeanFactory beanFactory;
     @Autowired
-    private Student student;
+    private StudentService studentService;
 
     @GetMapping
     public String getName(@RequestParam String name) throws JsonProcessingException {
@@ -33,5 +34,12 @@ public class BeanController {
         }else {
             return null;
         }
+    }
+
+    @GetMapping("test")
+    public String test() {
+        String studentServiceName = studentService.getName();
+        String name = studentService.getClass().getName();
+        return name;
     }
 }
