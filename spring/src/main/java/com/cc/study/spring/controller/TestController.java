@@ -1,15 +1,10 @@
 package com.cc.study.spring.controller;
 
-import com.cc.study.spring.entity.A;
 import com.cc.study.spring.entity.Student;
-import lombok.AllArgsConstructor;
-import lombok.Data;
 import org.springframework.beans.MutablePropertyValues;
 import org.springframework.beans.factory.config.BeanDefinition;
 import org.springframework.beans.factory.support.RootBeanDefinition;
 import org.springframework.context.annotation.AnnotationConfigApplicationContext;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 

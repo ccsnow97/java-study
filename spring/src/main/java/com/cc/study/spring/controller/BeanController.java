@@ -1,13 +1,14 @@
 package com.cc.study.spring.controller;
 
-import com.cc.study.spring.entity.Student;
 import com.cc.study.spring.entity.StudentService;
 import com.fasterxml.jackson.core.JsonProcessingException;
-import com.fasterxml.jackson.databind.ObjectMapper;
 import org.springframework.beans.factory.BeanFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.ApplicationContext;
-import org.springframework.web.bind.annotation.*;
+import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.bind.annotation.RestController;
 
 /**
  * @Date: 2020/07/21 16:55
@@ -18,8 +19,6 @@ public class BeanController {
 
     @Autowired
     private ApplicationContext applicationContext;
-    @Autowired
-    private ObjectMapper objectMapper;
     @Autowired
     private BeanFactory beanFactory;
     @Autowired
